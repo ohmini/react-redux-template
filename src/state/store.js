@@ -5,6 +5,7 @@ import {router} from '../router'
 import {initialState} from './initialState'
 
 import {systemEffects} from './system/effects'
+import {systemReducer} from './system/reducers'
 
 const sagaMiddleware = createSagaMiddleware()
 const routerMiddleware = createRouterMiddleware(router)
@@ -14,6 +15,7 @@ const composeEnhancers = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose
 const store = createStore(
   combineReducers({
     router: router5Reducer,
+    system: systemReducer,
   }),
   initialState,
   composeEnhancers(applyMiddleware(
