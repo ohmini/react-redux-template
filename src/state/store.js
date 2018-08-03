@@ -4,6 +4,8 @@ import {router5Middleware as createRouterMiddleware, router5Reducer} from 'redux
 import {router} from '../router'
 import {initialState} from './initialState'
 
+import {systemEffects} from './system/effects'
+
 const sagaMiddleware = createSagaMiddleware()
 const routerMiddleware = createRouterMiddleware(router)
 
@@ -19,7 +21,7 @@ const store = createStore(
   ))
 )
 
-//effects.forEach(fx => sagaMiddleware.run(fx))
+systemEffects.forEach(fx => sagaMiddleware.run(fx))
 
 export {
   store

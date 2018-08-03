@@ -2,12 +2,14 @@ import * as React from 'react'
 import {RouteNode} from 'react-router5'
 import {startsWithSegment} from 'router5-helpers'
 
+import {Home} from './home'
+
 export class Root extends React.Component {
 
   renderChild(route) {
     const test = startsWithSegment(route.name)
     if (test('home')) {
-      return null
+      return <Home />
     } else {
       return null
     }
